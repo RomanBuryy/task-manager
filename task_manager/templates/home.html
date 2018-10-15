@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="row justify-content-start">
+    <div class="col-3 offset-1">
+        {% if user.is_authenticated %}
+        <a href="{% url 'new_task' %}" class="btn btn-primary"> Add new Task </a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        {% for i in object_list %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ i.title }}</h5>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'task_edit' i.pk %}" class="card-link">Edit task</a>
+                    <a href="{% url 'task_delete' i.pk %}" class="card-link">Delete task</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
+

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="alert alert-danger" role="alert">
+        Are you sure that you want to delete: {{ task_detail.title }}
+    </div>
+    <input type="submit" value="Delete">
+</form>
+{% endblock content %}

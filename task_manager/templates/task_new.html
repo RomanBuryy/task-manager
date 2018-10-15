@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h3>Add your new Task</h3>
+<div class="row justify-content-center">
+    <div class="col-7">
+        <form action="" method="post">
+            <div class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock content %}
